@@ -8,7 +8,7 @@ export function renderDogCard(dog) {
 
     p.textContent = dog.name;
     img.src = `./assets/${dog.breed}.jpeg`;
-    a.href = `/detail/?id=${dog.id}`; // WHAT DO I CHANGE THIS TOO?
+    a.href = `/detail/?id=${dog.id}`; // did i do that right??
 
     div.append(p, img);
 
@@ -17,7 +17,11 @@ export function renderDogCard(dog) {
     return a;
 }
 
-export function renderDogDetail(dog) {
+export function renderDogDetail(dog) { //dog is undefined, that is a problem
+    //console.log(dog); //defined!!
+    //console.log(dog.name); //undefined??
+    //console.log(dog.breed); //undefined??
+    //console.log(dog.description); //undefined??
     const div = document.createElement('div');
     const img = document.createElement('img');
     const descriptionEl = document.createElement('p');
@@ -43,8 +47,7 @@ export function renderDogDetail(dog) {
     ageAndBreedEl.classList.add('age-and-breed');
 
     ageAndBreedEl.append(ageEl, breedEl);
-
-    img.src = `../assets/${dog.breed}.jpeg`;
+    img.src = `../assets/${dog.breed}.jpeg`; 
 
     div.append(nameEl, img, ageAndBreedEl, descriptionEl);
 
