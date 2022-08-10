@@ -1,15 +1,14 @@
 import { getDog } from '../fetch-utils.js';
 import { renderDogDetail } from '../render-utils.js';
 
-console.log(window.location);
-console.log('stealing this from julie, hello from detail.js');
+//console.log('we are inside the detail.js stuff');
 
 const params = new URLSearchParams(window.location.search);
-console.log(params.get('id'));
 const dogDetailContainer = document.getElementById('dog-detail-container');
 
 async function loadData() {
     const data = await getDog(params.get('id'));
+    //console.log(data); // defined!
     const dogDiv = renderDogDetail(data);
     dogDetailContainer.append(dogDiv);
 }
